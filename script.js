@@ -4,7 +4,7 @@ const tg = window.Telegram.WebApp.onEvent();
 body.height = window.innerHeight
 
 
- document.getElementById('sendMessageButton').addEventListener('click', () => {
+ /*document.getElementById('sendMessageButton').addEventListener('click', () => {
     alert(123)
     const message = prompt("Enter your message:");
     if (message !== null && message.trim() !== "") {
@@ -22,9 +22,9 @@ body.height = window.innerHeight
       .catch(error => console.error('Error:', error));
     }
   });
-
+*/
   document.getElementById('mainButtonBox').addEventListener('click', ()=>{
-    const coins = +document.getElementById('coinsLabel').textContent;
+    let coins = +document.getElementById('coinsLabel').textContent;
     coins += 1;
     document.getElementById('coinsLabel').innerHTML = coins
   })
