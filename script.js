@@ -1,5 +1,13 @@
 const tg = window.Telegram.WebApp.onEvent();
 
+document.getElementById('clickButton').addEventListener('click', ()=>{
+    let button = document.getElementById("clickButton");
+    button.classList.toggle("clicked");
+    setTimeout(function() {
+        button.classList.toggle("clicked");
+    }, 100);
+});
+
  document.getElementById('sendMessageButton').addEventListener('click', () => {
     alert(123)
     const message = prompt("Enter your message:");
@@ -13,7 +21,7 @@ const tg = window.Telegram.WebApp.onEvent();
       })
       .then(response => response.json())
       .then(data => {
-        document.getElementById('response').innerText = data.response;
+        alert(data.response)
       })
       .catch(error => console.error('Error:', error));
     }
