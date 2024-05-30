@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(7777)
+alert(888)
 window.onload = ()=> {
     if (localStorage.getItem('coins') > 0) {
         document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
@@ -65,12 +65,34 @@ function getTelegramId() {
     return window.Telegram.WebAppUser.id;
 }
 
-setInterval(()=>{
-    fetch('http://localhost:3000/api/updateGameData', {
+function postData(url, data) {
+    return fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({telegramId: getTelegramId(), energy: getLeftEnergy(), coins: getLeftCoins(), time: getCurrentTime()})
-    })
-}, 2000)
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+  }
+  
+  setInterval(() => {
+    postData('http://localhost:3000/api/updateGameData', {
+        telegramId: getTelegramId(),
+        energy: getLeftEnergy(),
+        coins: getLeftCoins(),
+        time: getCurrentTime()
+      })
+      .then(data => {
+        // Do something with the response data if needed
+        console.log('Response:', data);
+      });
+  }, 2000);
