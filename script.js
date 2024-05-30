@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(101010)
+alert(111111)
 
 window.onload = ()=> {
     postData('http://localhost:3000/api/getGameData', {
