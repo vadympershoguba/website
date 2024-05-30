@@ -7,7 +7,7 @@ document.getElementById('clickButton').addEventListener('click', ()=>{
         button.classList.toggle("clicked");
     }, 100);
 });
-
+body.height = window.innerHeight
 
 
  document.getElementById('sendMessageButton').addEventListener('click', () => {
