@@ -1,6 +1,5 @@
 const tg = window.Telegram.WebApp.onEvent();
 
-<button id="sendMessageButton">Send Message to Bot</button>
  document.getElementById('sendMessageButton').addEventListener('click', () => {
     const message = prompt("Enter your message:");
     if (message !== null && message.trim() !== "") {
