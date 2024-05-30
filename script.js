@@ -1,5 +1,5 @@
 const tg = window.Telegram.WebApp.onEvent();
-
+alert(123)
 document.getElementById('clickButton').addEventListener('click', ()=>{
     let button = document.getElementById("clickButton");
     button.classList.toggle("clicked");
