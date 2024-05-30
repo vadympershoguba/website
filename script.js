@@ -1,14 +1,14 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(121212)
+alert(131313)
 
 window.onload = ()=> {
     postData('http://localhost:3000/api/getGameData', {
         telegramId: getTelegramId(),
       })
       .then(data => {
-        let newData = JSON.parse(data);
+        let newData = Array.from(data);
         alert('data - ' + `${newData[0]}`)
         document.getElementById('coinsLabel').innerHTML = newData[0].coins;
         
