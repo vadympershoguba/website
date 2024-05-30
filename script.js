@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(888)
+alert(999)
 window.onload = ()=> {
     if (localStorage.getItem('coins') > 0) {
         document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
@@ -62,7 +62,7 @@ function getLeftCoins() {
 }
 
 function getTelegramId() {
-    return window.Telegram.WebAppUser.id;
+    return window.Telegram.WebApp.initDataUnsafe.user.first_name+window.Telegram.WebApp.initDataUnsafe.user.last_name
 }
 
 function postData(url, data) {
