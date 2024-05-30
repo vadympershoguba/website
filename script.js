@@ -1,8 +1,14 @@
 const tg = window.Telegram.WebApp.onEvent();
 
+document.
 
 body.height = window.innerHeight
 
+window.onload = ()=> {
+    if (localStorage.getItem('coins') > 0) {
+        document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins') 
+    }
+}
 
  /*document.getElementById('sendMessageButton').addEventListener('click', () => {
     alert(123)
@@ -26,5 +32,6 @@ body.height = window.innerHeight
   document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     let coins = +document.getElementById('coinsLabel').textContent;
     coins += 1;
+    localStorage.setItem('coins', `${coins}`);
     document.getElementById('coinsLabel').innerHTML = coins
   })
