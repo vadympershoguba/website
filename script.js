@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(366)
+alert(7777)
 window.onload = ()=> {
     if (localStorage.getItem('coins') > 0) {
         document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
@@ -46,17 +46,6 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     }
   }, 1000)
 
-window.addEventListener('beforeunload', ()=>{
-    alert('start')
-    fetch('http://localhost:3000/api/saveUserData', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({telegramId: getTelegramId(), energy: getLeftEnergy(), coins: getLeftCoins(), time: getCurrentTime()})
-    })
-});
-
 function getCurrentTime(){
     return new Date().toLocaleTimeString('en-US', { hour12: false });
 }
@@ -76,17 +65,12 @@ function getTelegramId() {
     return window.Telegram.WebAppUser.id;
 }
 
-document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState === 'hidden') {
-        alert('start111')
-        fetch('http://localhost:3000/api/saveUserData', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({telegramId: getTelegramId(), energy: getLeftEnergy(), coins: getLeftCoins(), time: getCurrentTime()})
-        })
-    } else {
-        // The page is now visible again
-    }
-});
+setInterval(()=>{
+    fetch('http://localhost:3000/api/updateGameData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({telegramId: getTelegramId(), energy: getLeftEnergy(), coins: getLeftCoins(), time: getCurrentTime()})
+    })
+}, 2000)
