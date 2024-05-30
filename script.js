@@ -46,7 +46,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     }
   }, 1000)
 
-window.addEventListener('beforeunload ', ()=>{
+window.addEventListener('beforeunload', ()=>{
     fetch('http://localhost:3000/api/saveUserData', {
         method: 'POST',
         headers: {
