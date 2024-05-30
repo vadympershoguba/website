@@ -9,7 +9,7 @@ window.onload = ()=> {
       })
       .then(data => {
         data = JSON.parse(data);
-        alert(data)
+        alert('data - ' + `${data}`)
         document.getElementById('coinsLabel').innerHTML = data.coins;
         
       });
