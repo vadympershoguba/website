@@ -1,5 +1,5 @@
 const tg = window.Telegram.WebApp.onEvent();
-
+tg.expand()
 body.height = window.innerHeight
 
 window.onload = ()=> {
@@ -27,24 +27,50 @@ window.onload = ()=> {
     }
   });
 */
-  document.getElementById('mainButtonBox').addEventListener('click', ()=>{
-    let coins = +document.getElementById('coinsLabel').textContent;
-    let energy = document.getElementById('energyLabel').textContent;
-    const parts = energy.split('/');
-    let leftEnergy = parseInt(parts[0]);
-    leftEnergy = leftEnergy - 1;
-    coins += 1;
-    localStorage.setItem('coins', `${coins}`);
-    localStorage.setItem('energy', `${energy}`);
-    document.getElementById('energyLabel').innerHTML = leftEnergy + '/1000'
-    document.getElementById('coinsLabel').innerHTML = coins
+  
+document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+    let energy = getLeftEnergy();
+    if (energy != 0){
+        let coins = getLeftCoins();
+        energy -= 1;
+        coins += 1;
+        document.getElementById('energyLabel').innerHTML = energy + '/1000'
+        document.getElementById('coinsLabel').innerHTML = coins
+    }
   })
 
   setInterval(()=>{
-    let energy = document.getElementById('energyLabel').textContent;
-    const parts = energy.split('/');
-    let leftEnergy = +parseInt(parts[0]);
+    let leftEnergy = getLeftEnergy();
     if (leftEnergy != 1000) {
         document.getElementById('energyLabel').innerHTML = (leftEnergy + 1) + '/1000';
     }
   }, 1000)
+
+window.addEventListener('beforeunload ', ()=>{
+    fetch('http://localhost:3000/api/saveUserData', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({telegramId: getTelegramId(), energy: getLeftEnergy(), coins: getLeftCoins(), time: getCurrentTime()})
+    })
+});
+
+function getCurrentTime(){
+    return new Date().toLocaleTimeString('en-US', { hour12: false });
+}
+
+function getLeftEnergy() {
+    let energy = document.getElementById('energyLabel').textContent;
+    const parts = energy.split('/');
+    let leftEnergy = +parseInt(parts[0]);
+    return leftEnergy;
+}
+
+function getLeftCoins() {
+    return +document.getElementById('coinsLabel').textContent;
+}
+
+function getTelegramId() {
+    return tg.initDataUnsafe.id
+}
