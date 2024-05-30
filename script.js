@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(313)
+alert(366)
 window.onload = ()=> {
     if (localStorage.getItem('coins') > 0) {
         document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
@@ -47,6 +47,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
   }, 1000)
 
 window.addEventListener('beforeunload', ()=>{
+    alert('start')
     fetch('http://localhost:3000/api/saveUserData', {
         method: 'POST',
         headers: {
@@ -72,5 +73,20 @@ function getLeftCoins() {
 }
 
 function getTelegramId() {
-    return tg.initDataUnsafe.id
+    return window.Telegram.WebAppUser.id;
 }
+
+document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === 'hidden') {
+        alert('start111')
+        fetch('http://localhost:3000/api/saveUserData', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({telegramId: getTelegramId(), energy: getLeftEnergy(), coins: getLeftCoins(), time: getCurrentTime()})
+        })
+    } else {
+        // The page is now visible again
+    }
+});
