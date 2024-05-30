@@ -1,32 +1,18 @@
 const tg = window.Telegram.WebApp.onEvent();
 window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(999)
-window.onload = ()=> {
-    if (localStorage.getItem('coins') > 0) {
-        document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
-    }
-}
+alert(101010)
 
- /*document.getElementById('sendMessageButton').addEventListener('click', () => {
-    alert(123)
-    const message = prompt("Enter your message:");
-    if (message !== null && message.trim() !== "") {
-      fetch('http://localhost:3000/api/sendMessage', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ message: message })
+window.onload = ()=> {
+    postData('http://localhost:3000/api/getGameData', {
+        telegramId: getTelegramId(),
       })
-      .then(response => response.json())
       .then(data => {
-        alert(data.response)
-      })
-      .catch(error => console.error('Error:', error));
-    }
-  });
-*/
+        data = JSON.parse(data);
+        document.getElementById('coinsLabel').innerHTML = data.coins;
+        
+      });
+}
   
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     let energy = getLeftEnergy();
