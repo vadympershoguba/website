@@ -36,7 +36,7 @@ window.onload = ()=> {
     coins += 1;
     localStorage.setItem('coins', `${coins}`);
     localStorage.setItem('energy', `${energy}`);
-    document.getElementById('energyLabel').innerHTML = energy
+    document.getElementById('energyLabel').innerHTML = leftEnergy + '/1000'
     document.getElementById('coinsLabel').innerHTML = coins
   })
 
@@ -45,6 +45,6 @@ window.onload = ()=> {
     const parts = energy.split('/');
     let leftEnergy = parseInt(parts[0]);
     if (leftEnergy != 1000) {
-        document.getElementById('energyLabel').innerHTML = leftEnergy + 1;
+        document.getElementById('energyLabel').innerHTML = (leftEnergy + 1) + '/1000';
     }
   }, 1000)
