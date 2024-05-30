@@ -9,7 +9,6 @@ window.onload = ()=> {
       })
       .then(data => {
         let newData = Array.from(data);
-        alert('data - ' + `${newData[0]}`)
         document.getElementById('coinsLabel').innerHTML = newData[0].coins;
         
       });
