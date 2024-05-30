@@ -1,5 +1,5 @@
 const tg = window.Telegram.WebApp.onEvent();
-tg.expand()
+window.Telegram.WebApp.expand();
 body.height = window.innerHeight
 alert(33)
 window.onload = ()=> {
