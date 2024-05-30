@@ -1,7 +1,7 @@
 const tg = window.Telegram.WebApp.onEvent();
 tg.expand()
 body.height = window.innerHeight
-
+alert(33)
 window.onload = ()=> {
     if (localStorage.getItem('coins') > 0) {
         document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
