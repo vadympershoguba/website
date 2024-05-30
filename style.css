@@ -9,7 +9,9 @@ body {
   }
   
   .buttonBox{
-    margin-top: 300px;
+    position: absolute;
+    margin-left: 32.5vw;
+    margin-top: 16vh;
 }
   
 .nav {
@@ -33,9 +35,8 @@ background-image: -moz-linear-gradient(top, #f7f7f7, #e7e7e7);
 background-image: -ms-linear-gradient(top, #f7f7f7, #e7e7e7); 
 background-image: -o-linear-gradient(top, #f7f7f7, #e7e7e7); 
 color: #a7a7a7;
-margin: 36px;
-width: 144px;
-height: 144px;
+width: 30vw;
+height: 30vw;
 position: relative;
 text-align: center;
 line-height: 144px;
