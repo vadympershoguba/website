@@ -41,9 +41,9 @@ window.onload = ()=> {
   })
 
   setInterval(()=>{
-    let energy = +document.getElementById('energyLabel').textContent;
+    let energy = document.getElementById('energyLabel').textContent;
     const parts = energy.split('/');
-    let leftEnergy = parseInt(parts[0]);
+    let leftEnergy = +parseInt(parts[0]);
     if (leftEnergy != 1000) {
         document.getElementById('energyLabel').innerHTML = (leftEnergy + 1) + '/1000';
     }
