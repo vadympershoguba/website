@@ -1,12 +1,10 @@
 const tg = window.Telegram.WebApp.onEvent();
 
-document.
-
 body.height = window.innerHeight
 
 window.onload = ()=> {
     if (localStorage.getItem('coins') > 0) {
-        document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins') 
+        document.getElementById('coinsLabel').innerHTML = localStorage.getItem('coins');
     }
 }
 
@@ -31,7 +29,22 @@ window.onload = ()=> {
 */
   document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     let coins = +document.getElementById('coinsLabel').textContent;
+    let energy = document.getElementById('energyLabel').textContent;
+    const parts = energy.split('/');
+    let leftEnergy = parseInt(parts[0]);
+    leftEnergy = leftEnergy - 1;
     coins += 1;
     localStorage.setItem('coins', `${coins}`);
+    localStorage.setItem('energy', `${energy}`);
+    document.getElementById('energyLabel').innerHTML = energy
     document.getElementById('coinsLabel').innerHTML = coins
   })
+
+  setInterval(()=>{
+    let energy = +document.getElementById('energyLabel');
+    const parts = energy.split('/');
+    let leftEnergy = parseInt(parts[0]);
+    if (leftEnergy != 1000) {
+        document.getElementById('energyLabel').innerHTML = leftEnergy + 1;
+    }
+  }, 1000)
