@@ -12,6 +12,13 @@ window.onload = ()=> {
         document.getElementById('energyLabel').innerHTML = calculateEnergy(record.energy, record.time)
       });
 }
+
+document.getElementById('friendsButton').addEventListener('click', ()=>{
+    document.getElementById('gameField').style.display = 'none';
+    document.getElementById('friendsButton').style.color = 'red';
+    document.getElementById('gameButton').style.color =' white;
+});
+
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
     if (window.Telegram.WebApp.platform == 'ios'){
         for (let i = 0; i < event.touches.length; i++) {
