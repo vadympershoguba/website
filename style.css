@@ -52,4 +52,8 @@ html, body {
     background: white;
     border-radius: 4px;
 }
-    
+
+#friendsButton{
+    margin-top: 5px;
+    height: 40px;
+}
