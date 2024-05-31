@@ -45,6 +45,7 @@ html, body {
 }
 
 #menu {
+    text-align: center;
     margin-top: 15px;
     width: 90%;
     margin-left: 5%;
@@ -54,6 +55,7 @@ html, body {
 }
 
 #friendsButton{
+    position: relative;
     margin-top: 5px;
     height: 40px;
     width: 60px;
