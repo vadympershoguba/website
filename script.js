@@ -13,7 +13,6 @@ window.onload = ()=> {
       });
 }
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
-
     for (let i = 0; i < event.touches.length; i++) {
         showClick(event.touches[i]);
     }
@@ -25,7 +24,19 @@ document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
     }
-  })
+  });
+
+document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+    showClick(event);
+    let energy = getLeftEnergy();
+    if (energy != 0){
+        let coins = getLeftCoins();
+        energy -= event.touches.length;
+        coins += event.touches.length;
+        document.getElementById('energyLabel').innerHTML = energy + '/1000'
+        document.getElementById('coinsLabel').innerHTML = coins
+    }
+});
 
    
 
