@@ -12,9 +12,11 @@ window.onload = ()=> {
         document.getElementById('energyLabel').innerHTML = calculateEnergy(record.energy, record.time)
       });
 }
-  
-document.getElementById('mainButtonBox').addEventListener('click', ()=>{
-    const x = event.clientX;
+  let clickTimeout;
+document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
+    clearTimeout
+    clickTimeout = setTimeout(()=>{
+         const x = event.clientX;
     const y = event.clientY;
 
     const plusOne = document.createElement('h2');
@@ -30,6 +32,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     
     let energy = getLeftEnergy();
     if (energy != 0){
+        
         let coins = getLeftCoins();
         energy -= 1;
         coins += 1;
@@ -41,6 +44,8 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
         document.body.removeChild(plusOne);
     }, 1000);
   })
+    }, 300)
+   
 
   setInterval(()=>{
     let leftEnergy = getLeftEnergy();
