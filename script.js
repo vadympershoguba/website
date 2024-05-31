@@ -1,5 +1,4 @@
 body.height = window.innerHeight
-alert(1111)
 window.onload = ()=> {
     postData('http://localhost:3000/getGameData', {
         telegramId: getTelegramId(),
@@ -57,6 +56,7 @@ function getLeftCoins() {
 
 function getTelegramId() {
     let tg = window.Telegram.WebApp;
+    console.log(tg.initDataUnsafe)
     return tg.initDataUnsafe.first_name+' '+tg.initDataUnsafe.last_name
 }
 
