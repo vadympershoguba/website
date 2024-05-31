@@ -16,7 +16,7 @@ window.onload = ()=> {
 document.getElementById('friendsButton').addEventListener('click', ()=>{
     document.getElementById('gameField').style.display = 'none';
     document.getElementById('friendsButton').style.color = 'red';
-    document.getElementById('gameButton').style.color =' white;
+    document.getElementById('gameButton').style.color ='white';
 });
 
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
