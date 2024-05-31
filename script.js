@@ -24,6 +24,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     plusOne.style.left = (x-100) + "px";
     plusOne.style.top = (y-100) + "px";
     plusOne.style.color = "green";
+    plusOne.style.animation = "upAndFadeOut 1s forwards"; 
 
     document.body.appendChild(plusOne);
     
@@ -35,6 +36,10 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
     }
+
+    setTimeout(() => {
+        document.body.removeChild(plusOne);
+    }, 1000);
   })
 
   setInterval(()=>{
