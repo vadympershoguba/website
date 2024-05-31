@@ -21,8 +21,8 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     plusOne.textContent = "+1";
 
     plusOne.style.position = "absolute";
-    plusOne.style.left = (x-100) + "px";
-    plusOne.style.top = (y-100) + "px";
+    plusOne.style.left = (x-20) + "px";
+    plusOne.style.top = (y-20) + "px";
     plusOne.style.color = "green";
     plusOne.style.animation = "upAndFadeOut 1s forwards"; 
 
