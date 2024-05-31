@@ -14,27 +14,31 @@ window.onload = ()=> {
 }
   
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
-    const x = event.clientX;
-    const y = event.clientY;
+    event.preventDefault(); // Prevent default touch behavior
+    
+    const x = event.clientX || event.touches[0].clientX;
+    const y = event.clientY || event.touches[0].clientY;
 
     const plusOne = document.createElement('h2');
     plusOne.textContent = "+1";
 
     plusOne.style.position = "absolute";
-    plusOne.style.left = (x-20) + "px";
-    plusOne.style.top = (y-20) + "px";
+    plusOne.style.left = (x - 20) + "px";
+    plusOne.style.top = (y - 20) + "px";
     plusOne.style.color = "green";
-    plusOne.style.animation = "upAndFadeOut 1s forwards"; 
+    plusOne.style.animation = "upAndFadeOut 1s forwards";
 
     document.body.appendChild(plusOne);
-    
+
     let energy = getLeftEnergy();
-    if (energy != 0){
+    if (energy > 0) {
         let coins = getLeftCoins();
         energy -= 1;
         coins += 1;
-        document.getElementById('energyLabel').innerHTML = energy + '/1000'
-        document.getElementById('coinsLabel').innerHTML = coins
+        document.getElementById('energyLabel').innerHTML = energy + '/1000';
+        document.getElementById('coinsLabel').innerHTML = coins;
+    } else {
+        console.log("Not enough energy!");
     }
 
     setTimeout(() => {
