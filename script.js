@@ -13,7 +13,7 @@ window.onload = ()=> {
       });
 }
   let clickTimeout;
-document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
+document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     clearTimeout
     clickTimeout = setTimeout(()=>{
          const x = event.clientX;
