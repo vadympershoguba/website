@@ -59,7 +59,7 @@ html, body {
 #friendsButton{
     position: relative;
     padding-top: 5px;
-    margin-top:5px;
+    margin-top:-45px;
     color:white;
     margin: 0 auto;
     height: 40px;
