@@ -69,7 +69,8 @@ html, body {
 }
 
 #gameButton{
-    color:red;
+    padding-top: 5px;
+    color:white;
     position: relative;
     margin-left: 5px;
     height: 40px;
