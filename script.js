@@ -13,8 +13,43 @@ window.onload = ()=> {
       });
 }
   
-document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+//document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+ 
+  })
+
+  setInterval(()=>{
+    let leftEnergy = getLeftEnergy();
+    if (leftEnergy != 1000) {
+        document.getElementById('energyLabel').innerHTML = (leftEnergy + 1) + '/1000';
+    }
+  }, 1000)
+
+//------------------------------------------------------------------------------------
+
+document.getElementById('mainButtonBox').addEventListener('click', handleClick);
+function handleClick(event) {
+    event.preventDefault();
+    
+    const x = event.clientX;
+    const y = event.clientY;
+
+    processInteraction(x, y);
+}
+
+//-------------------------------------------------------------------------------------
+
+document.getElementById('mainButtonBox').addEventListener('touchstart', handleTouch);
+function handleTouch(event) {
     event.preventDefault(); // Prevent default touch behavior
+    
+    const x = event.touches[0].clientX;
+    const y = event.touches[0].clientY;
+
+    processInteraction(x, y);
+}
+//------------------------------------------------------------------------------------------
+function processInteraction(x, y) {
+         event.preventDefault(); // Prevent default touch behavior
     
     const x = event.clientX || event.touches[0].clientX;
     const y = event.clientY || event.touches[0].clientY;
@@ -44,14 +79,9 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     setTimeout(() => {
         document.body.removeChild(plusOne);
     }, 1000);
-  })
+}
 
-  setInterval(()=>{
-    let leftEnergy = getLeftEnergy();
-    if (leftEnergy != 1000) {
-        document.getElementById('energyLabel').innerHTML = (leftEnergy + 1) + '/1000';
-    }
-  }, 1000)
+
 
   function getCurrentTime() {
     const now = new Date();
