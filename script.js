@@ -12,8 +12,9 @@ window.onload = ()=> {
         document.getElementById('energyLabel').innerHTML = calculateEnergy(record.energy, record.time)
       });
 }
-document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
 
+    /*
     const x = event.clientX;
     const y = event.clientY;
 
@@ -27,20 +28,21 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     plusOne.style.animation = "upAndFadeOut 1s forwards"; 
 
     document.body.appendChild(plusOne);
-    
+    */
     let energy = getLeftEnergy();
     if (energy != 0){
         
         let coins = getLeftCoins();
         energy -= 1;
-        coins += 1;
+        coins += event.touches.length;
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
     }
-
+    /*
     setTimeout(() => {
         document.body.removeChild(plusOne);
     }, 1000);
+    */
   })
 
    
