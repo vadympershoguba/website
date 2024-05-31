@@ -1,7 +1,7 @@
 body.height = window.innerHeight
 
 window.onload = ()=> {
-    postData('/getGameData', {
+    postData('http://localhost:3000/getGameData', {
         telegramId: getTelegramId(),
       })
       .then(data => {
@@ -79,7 +79,7 @@ function postData(url, data) {
   }
   
   setInterval(() => {
-    postData('/updateGameData', {
+    postData('http://localhost:3000/updateGameData', {
         telegramId: getTelegramId(),
         energy: getLeftEnergy(),
         coins: getLeftCoins(),
