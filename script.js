@@ -100,7 +100,7 @@ function postData(url, data) {
 
     let differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
     if (lastEnergy + differenceInSeconds >= 1000) {
-      return 1000;
+      return '1000/1000';
     } else {
       return `${lastEnergy + differenceInSeconds}`+'/1000'
     }
