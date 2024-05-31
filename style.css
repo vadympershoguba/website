@@ -55,8 +55,9 @@ html, body {
 }
 
 #friendsButton{
+    color:white;
     position: relative;
-    margin-top: 5px;
+    margin: 0 auto;
     height: 40px;
     width: 60px;
     background-color: var(--tg-theme-bg-color);
