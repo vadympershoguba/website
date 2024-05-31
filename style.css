@@ -66,3 +66,14 @@ html, body {
     background-color: var(--tg-theme-bg-color);
     border-radius: 5px;
 }
+
+#gameButton{
+    padding-top: 5px;
+    color:white;
+    position: relative;
+    margin-left: 5px;
+    height: 40px;
+    width: 60px;
+    background-color: var(--tg-theme-bg-color);
+    border-radius: 5px;
+}
