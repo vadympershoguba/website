@@ -56,8 +56,7 @@ function getLeftCoins() {
 
 function getTelegramId() {
     let tg = window.Telegram.WebApp;
-    console.log(tg.initDataUnsafe.user.id)
-    return tg.initDataUnsafe.first_name+' '+tg.initDataUnsafe.last_name
+    return tg.initDataUnsafe.user.id
 }
 
 function postData(url, data) {
