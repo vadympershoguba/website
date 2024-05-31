@@ -13,8 +13,33 @@ window.onload = ()=> {
       });
 }
   
-//document.getElementById('mainButtonBox').addEventListener('click', ()=>{
- 
+document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+    const x = event.clientX;
+    const y = event.clientY;
+
+    const plusOne = document.createElement('h2');
+    plusOne.textContent = "+1";
+
+    plusOne.style.position = "absolute";
+    plusOne.style.left = (x-20) + "px";
+    plusOne.style.top = (y-20) + "px";
+    plusOne.style.color = "green";
+    plusOne.style.animation = "upAndFadeOut 1s forwards"; 
+
+    document.body.appendChild(plusOne);
+    
+    let energy = getLeftEnergy();
+    if (energy != 0){
+        let coins = getLeftCoins();
+        energy -= 1;
+        coins += 1;
+        document.getElementById('energyLabel').innerHTML = energy + '/1000'
+        document.getElementById('coinsLabel').innerHTML = coins
+    }
+
+    setTimeout(() => {
+        document.body.removeChild(plusOne);
+    }, 1000);
   })
 
   setInterval(()=>{
@@ -23,65 +48,6 @@ window.onload = ()=> {
         document.getElementById('energyLabel').innerHTML = (leftEnergy + 1) + '/1000';
     }
   }, 1000)
-
-//------------------------------------------------------------------------------------
-
-document.getElementById('mainButtonBox').addEventListener('click', handleClick);
-function handleClick(event) {
-    event.preventDefault();
-    
-    const x = event.clientX;
-    const y = event.clientY;
-
-    processInteraction(x, y);
-}
-
-//-------------------------------------------------------------------------------------
-
-document.getElementById('mainButtonBox').addEventListener('touchstart', handleTouch);
-function handleTouch(event) {
-    event.preventDefault(); // Prevent default touch behavior
-    
-    const x = event.touches[0].clientX;
-    const y = event.touches[0].clientY;
-
-    processInteraction(x, y);
-}
-//------------------------------------------------------------------------------------------
-function processInteraction(x, y) {
-         event.preventDefault(); // Prevent default touch behavior
-    
-    const x = event.clientX || event.touches[0].clientX;
-    const y = event.clientY || event.touches[0].clientY;
-
-    const plusOne = document.createElement('h2');
-    plusOne.textContent = "+1";
-
-    plusOne.style.position = "absolute";
-    plusOne.style.left = (x - 20) + "px";
-    plusOne.style.top = (y - 20) + "px";
-    plusOne.style.color = "green";
-    plusOne.style.animation = "upAndFadeOut 1s forwards";
-
-    document.body.appendChild(plusOne);
-
-    let energy = getLeftEnergy();
-    if (energy > 0) {
-        let coins = getLeftCoins();
-        energy -= 1;
-        coins += 1;
-        document.getElementById('energyLabel').innerHTML = energy + '/1000';
-        document.getElementById('coinsLabel').innerHTML = coins;
-    } else {
-        console.log("Not enough energy!");
-    }
-
-    setTimeout(() => {
-        document.body.removeChild(plusOne);
-    }, 1000);
-}
-
-
 
   function getCurrentTime() {
     const now = new Date();
