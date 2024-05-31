@@ -70,7 +70,7 @@ html, body {
 
 #gameButton{
     padding-top: 5px;
-    color:white;
+    color:red;
     position: relative;
     margin-left: 5px;
     height: 40px;
