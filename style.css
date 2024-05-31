@@ -43,3 +43,9 @@ html, body {
     opacity: 0; /* Fade out */
   }
 }
+
+#menu {
+    width: 90%;
+    background: white;
+}
+    
