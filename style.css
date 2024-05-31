@@ -21,7 +21,7 @@ html, body {
 
 #energyLabel{
     text-align: center;
-    margin-top: 70px;
+    margin-top: 55px;
     color: white;
 }
 
@@ -45,6 +45,7 @@ html, body {
 }
 
 #menu {
+    margin-top: 15px;
     width: 90%;
     margin-left: 5%;
     height: 50px;
