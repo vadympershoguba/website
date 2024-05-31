@@ -17,7 +17,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     const x = event.clientX;
     const y = event.clientY;
 
-    const plusOne = document.createElement('h3');
+    const plusOne = document.createElement('h2');
     plusOne.textContent = "+1";
 
     plusOne.style.position = "absolute";
