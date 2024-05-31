@@ -31,8 +31,8 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     let energy = getLeftEnergy();
     if (energy != 0){
         let coins = getLeftCoins();
-        energy -= event.touches.length;
-        coins += event.touches.length;
+        energy -= 1;
+        coins += 1;
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
     }
