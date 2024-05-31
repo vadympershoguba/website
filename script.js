@@ -1,4 +1,5 @@
 body.height = window.innerHeight
+alert(window.Telegram.WebApp.platform)
 window.onload = ()=> {
     const tg = window.Telegram.WebApp;
     tg.expand();
@@ -13,7 +14,6 @@ window.onload = ()=> {
       });
 }
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
-    if (window.Telegram.WebApp.platform == 'iOS Device'){
         for (let i = 0; i < event.touches.length; i++) {
         showClick(event.touches[i]);
     }
@@ -25,7 +25,6 @@ document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
         }
-    }
   });
 
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
