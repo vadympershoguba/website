@@ -1,5 +1,5 @@
 body.height = window.innerHeight
-
+alert(888)
 window.onload = ()=> {
     postData('http://localhost:3000/getGameData', {
         telegramId: getTelegramId(),
