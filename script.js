@@ -12,11 +12,9 @@ window.onload = ()=> {
         document.getElementById('energyLabel').innerHTML = calculateEnergy(record.energy, record.time)
       });
 }
-  let clickTimeout;
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
-    clearTimeout
-    clickTimeout = setTimeout(()=>{
-         const x = event.clientX;
+
+    const x = event.clientX;
     const y = event.clientY;
 
     const plusOne = document.createElement('h2');
@@ -44,7 +42,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
         document.body.removeChild(plusOne);
     }, 1000);
   })
-    }, 300)
+
    
 
   setInterval(()=>{
