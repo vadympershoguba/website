@@ -13,7 +13,8 @@ window.onload = ()=> {
       });
 }
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
-    for (let i = 0; i < event.touches.length; i++) {
+    if (window.Telegram.WebApp.platform == 'iOS Device'){
+        for (let i = 0; i < event.touches.length; i++) {
         showClick(event.touches[i]);
     }
     let energy = getLeftEnergy();
@@ -23,10 +24,12 @@ document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
         coins += event.touches.length;
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
+        }
     }
   });
 
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+    if (window.Telegram.WebApp.platform == 'Desktop Device'){
     showClick(event);
     let energy = getLeftEnergy();
     if (energy != 0){
@@ -35,6 +38,7 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
         coins += 1;
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
+    }
     }
 });
 
