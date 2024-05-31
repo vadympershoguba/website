@@ -46,8 +46,9 @@ html, body {
 
 #menu {
     width: 90%;
-    margin-left: 10%;
-    height: 60px;
+    margin-left: 5%;
+    height: 50px;
     background: white;
+    border-radius: 4px;
 }
     
