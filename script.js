@@ -1,5 +1,7 @@
 body.height = window.innerHeight
 window.onload = ()=> {
+    const tg = window.Telegram.WebApp;
+    tg.expand();
     postData('http://localhost:3000/getGameData', {
         telegramId: getTelegramId(),
       })
@@ -19,8 +21,8 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     plusOne.textContent = "+1";
 
     plusOne.style.position = "absolute";
-    plusOne.style.left = x + "px";
-    plusOne.style.top = y + "px";
+    plusOne.style.left = (x-20) + "px";
+    plusOne.style.top = (y-20) + "px";
     plusOne.style.color = "green";
 
     document.body.appendChild(plusOne);
