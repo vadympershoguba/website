@@ -14,35 +14,17 @@ window.onload = ()=> {
 }
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
 
-    
-    const x = event.clientX;
-    const y = event.clientY;
-
-    const plusOne = document.createElement('h2');
-    plusOne.textContent = "+1";
-
-    plusOne.style.position = "absolute";
-    plusOne.style.left = (x-20) + "px";
-    plusOne.style.top = (y-20) + "px";
-    plusOne.style.color = "green";
-    plusOne.style.animation = "upAndFadeOut 1s forwards"; 
-
-    document.body.appendChild(plusOne);
-    
+    for (let i = 0; i < event.touches.length; i++) {
+        showClick(event.touches[i]);
+    }
     let energy = getLeftEnergy();
     if (energy != 0){
-        
         let coins = getLeftCoins();
         energy -= event.touches.length;
         coins += event.touches.length;
         document.getElementById('energyLabel').innerHTML = energy + '/1000'
         document.getElementById('coinsLabel').innerHTML = coins
     }
-    
-    setTimeout(() => {
-        document.body.removeChild(plusOne);
-    }, 1000);
-    
   })
 
    
@@ -131,6 +113,22 @@ function postData(url, data) {
     }
   }
 function showClick(event) {
-    
+    const x = event.clientX;
+    const y = event.clientY;
+
+    const plusOne = document.createElement('h2');
+    plusOne.textContent = "+1";
+
+    plusOne.style.position = "absolute";
+    plusOne.style.left = (x-20) + "px";
+    plusOne.style.top = (y-20) + "px";
+    plusOne.style.color = "green";
+    plusOne.style.animation = "upAndFadeOut 1s forwards"; 
+
+    document.body.appendChild(plusOne);
+
+        setTimeout(() => {
+        document.body.removeChild(plusOne);
+    }, 1000);
 }
     
