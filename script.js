@@ -12,10 +12,10 @@ window.onload = ()=> {
 }
   
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
-    const xCoordinate = event.clientX;
-    const yCoordinate = event.clientY;
+    const x = event.clientX;
+    const y = event.clientY;
 
-     const plusOne = document.createElement('h3');
+    const plusOne = document.createElement('h3');
     plusOne.textContent = "+1";
 
     plusOne.style.position = "absolute";
