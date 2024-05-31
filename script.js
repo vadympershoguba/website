@@ -6,7 +6,6 @@ window.onload = ()=> {
       .then(data => {
         newData = Array.from(data.data);
         const record = newData[newData.length-1];
-        console.log(record)
         document.getElementById('coinsLabel').innerHTML = record.coins;
         document.getElementById('energyLabel').innerHTML = calculateEnergy(record.energy, record.time)
       });
@@ -100,7 +99,6 @@ function postData(url, data) {
     let differenceInMilliseconds = currentDate - givenDate;
 
     let differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
-    console.log(differenceInSeconds) ;
     if (lastEnergy + differenceInSeconds >= 1000) {
       return 1000;
     } else {
