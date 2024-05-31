@@ -12,6 +12,19 @@ window.onload = ()=> {
 }
   
 document.getElementById('mainButtonBox').addEventListener('click', ()=>{
+    const xCoordinate = event.clientX;
+    const yCoordinate = event.clientY;
+
+     const plusOne = document.createElement('h3');
+    plusOne.textContent = "+1";
+
+    plusOne.style.position = "absolute";
+    plusOne.style.left = x + "px";
+    plusOne.style.top = y + "px";
+    plusOne.style.color = "green";
+
+    document.body.appendChild(plusOne);
+    
     let energy = getLeftEnergy();
     if (energy != 0){
         let coins = getLeftCoins();
