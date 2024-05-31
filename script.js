@@ -56,7 +56,8 @@ function getLeftCoins() {
 }
 
 function getTelegramId() {
-    return window.Telegram.WebApp.initDataUnsafe.first_name+' '+window.Telegram.WebApp.initDataUnsafe.last_name
+    let tg = window.Telegram.WebApp;
+    return tg.initDataUnsafe.first_name+' '+tg.initDataUnsafe.last_name
 }
 
 function postData(url, data) {
