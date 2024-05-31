@@ -1,16 +1,15 @@
-const tg = window.Telegram.WebApp.onEvent();
-window.Telegram.WebApp.expand();
 body.height = window.innerHeight
-alert(141414)
 
 window.onload = ()=> {
-    postData('http://localhost:3000/api/getGameData', {
+    postData('/getGameData', {
         telegramId: getTelegramId(),
       })
       .then(data => {
-        let newData = Array.from(data);
-        document.getElementById('coinsLabel').innerHTML = newData[0].coins;
-        
+        newData = Array.from(data.data);
+        const record = newData[newData.length-1];
+        console.log(record)
+        document.getElementById('coinsLabel').innerHTML = record.coins;
+        document.getElementById('energyLabel').innerHTML = calculateEnergy(record.energy, record.time)
       });
 }
   
@@ -32,15 +31,24 @@ document.getElementById('mainButtonBox').addEventListener('click', ()=>{
     }
   }, 1000)
 
-function getCurrentTime(){
-    return new Date().toLocaleTimeString('en-US', { hour12: false });
-}
+  function getCurrentTime() {
+    const now = new Date();
+    const date = now.toLocaleDateString('en-US', { 
+        day: '2-digit', 
+        month: '2-digit', 
+        year: 'numeric' 
+    });
+    const time = now.toLocaleTimeString('en-US', { 
+        hour12: false 
+    });
 
+    return `${date} ${time}`;
+}
 function getLeftEnergy() {
     let energy = document.getElementById('energyLabel').textContent;
     const parts = energy.split('/');
     let leftEnergy = +parseInt(parts[0]);
-    return leftEnergy;
+    return +leftEnergy;
 }
 
 function getLeftCoins() {
@@ -48,7 +56,7 @@ function getLeftCoins() {
 }
 
 function getTelegramId() {
-    return window.Telegram.WebApp.initDataUnsafe.user.first_name+window.Telegram.WebApp.initDataUnsafe.user.last_name
+    return window.Telegram.WebApp.initDataUnsafe.first_name+' '+window.Telegram.WebApp.initDataUnsafe.last_name
 }
 
 function postData(url, data) {
@@ -71,7 +79,7 @@ function postData(url, data) {
   }
   
   setInterval(() => {
-    postData('http://localhost:3000/api/updateGameData', {
+    postData('/updateGameData', {
         telegramId: getTelegramId(),
         energy: getLeftEnergy(),
         coins: getLeftCoins(),
@@ -79,6 +87,23 @@ function postData(url, data) {
       })
       .then(data => {
         // Do something with the response data if needed
-        console.log('Response:', data);
       });
   }, 2000);
+
+  function calculateEnergy(lastEnergy, time){
+    let givenDateString = time;
+
+    let givenDate = new Date(givenDateString);
+
+    let currentDate = new Date();
+
+    let differenceInMilliseconds = currentDate - givenDate;
+
+    let differenceInSeconds = Math.floor(differenceInMilliseconds / 1000);
+    console.log(differenceInSeconds) ;
+    if (lastEnergy + differenceInSeconds >= 1000) {
+      return 1000;
+    } else {
+      return `${lastEnergy + differenceInSeconds}`+'/1000'
+    }
+  }
