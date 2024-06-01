@@ -83,10 +83,10 @@ html, body {
 #referalField{
     position: absolute;
     width: 90%;
-    height: 120px;
+    height: 90px;
     background-color: white;
     border-radius: 4px;
     margin-left: 5%;
-    margin-top: 15%;
+    margin-top: 25%;
     display: none;
 }
