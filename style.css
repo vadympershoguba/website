@@ -119,3 +119,13 @@ html, body {
     margin-left: 5%;
     margin-top: 118%;
 }
+
+#generateLinkBox{
+    position: absolute;
+    width: 20%;
+    height: 60px;
+    background-color: white;
+    border-radius: 4px;
+    margin-left: 70%;
+    margin-top: 118%;
+}
