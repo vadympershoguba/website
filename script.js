@@ -180,7 +180,7 @@ document.getElementById('inviteFriendBox').addEventListener('click', ()=>{
   };
 
   // Show the popup with the share button
-  Telegram.WebApp.showPopup(popupConfig, function(buttonId) {
+  window.Telegram.WebApp.showPopup(popupConfig, function(buttonId) {
     if (buttonId === 'shareButton') {
       // Handle the share button click
       console.log('Share button clicked');
