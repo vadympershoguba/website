@@ -162,3 +162,31 @@ function showClick(event) {
     }, 1000);
 }
     
+document.getElementById('inviteFriendBox').addEventListener('click', ()=>{
+  const popupConfig = {
+    message: 'Share this awesome content on Telegram!',
+    buttons: [
+      {
+        type: 'share',
+        id: 'shareButton',
+        text: 'Share'
+      },
+      {
+        type: 'close',
+        id: 'closeButton',
+        text: 'Close'
+      }
+    ]
+  };
+
+  // Show the popup with the share button
+  Telegram.WebApp.showPopup(popupConfig, function(buttonId) {
+    if (buttonId === 'shareButton') {
+      // Handle the share button click
+      console.log('Share button clicked');
+    } else if (buttonId === 'closeButton') {
+      // Handle the close button click
+      console.log('Popup closed');
+    }
+  });
+});
