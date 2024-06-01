@@ -81,6 +81,7 @@ html, body {
 }
 
 #inviteSimpleBox{
+    color: var(--tg-theme-bg-color);
     position: absolute;
     width: 90%;
     height: 90px;
@@ -91,6 +92,7 @@ html, body {
 }
 
 #invitePremiumBox{
+    color: var(--tg-theme-bg-color);
     position: absolute;
     width: 90%;
     height: 90px;
@@ -111,6 +113,7 @@ html, body {
 }
 
 #inviteFriendBox{
+    color: var(--tg-theme-bg-color);
     position: absolute;
     width: 67%;
     height: 60px;
