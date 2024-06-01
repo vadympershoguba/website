@@ -129,3 +129,13 @@ html, body {
     margin-left: 75%;
     margin-top: 118%;
 }
+
+#refreshFriendsList{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    border-radius: 4px;
+    margin-left: 75%;
+    margin-top: 61%;
+}
