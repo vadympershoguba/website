@@ -20,6 +20,13 @@ document.getElementById('friendsButton').addEventListener('click', ()=>{
     document.getElementById('referalField').style.display = 'block';
 });
 
+document.getElementById('gameButton').addEventListener('click', ()=>{
+  document.getElementById('gameField').style.display = 'block';
+  document.getElementById('friendsButton').style.color = 'white';
+  document.getElementById('gameButton').style.color ='red';
+  document.getElementById('referalField').style.display = 'none';
+});
+
 document.getElementById('mainButtonBox').addEventListener('touchstart', ()=>{
     if (window.Telegram.WebApp.platform == 'ios'){
         for (let i = 0; i < event.touches.length; i++) {
