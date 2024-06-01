@@ -79,3 +79,14 @@ html, body {
     background-color: var(--tg-theme-bg-color);
     border-radius: 5px;
 }
+
+#referalField{
+    position: absolute;
+    width: 90%;
+    height: 400px;
+    background-color: white;
+    border-radius: 4px;
+    margin-left: 5%;
+    margin-top: 5%;
+    display: none;
+}
