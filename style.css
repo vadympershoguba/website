@@ -89,3 +89,13 @@ html, body {
     margin-left: 5%;
     margin-top: 5%;
 }
+
+#invitePremiumBox{
+    position: absolute;
+    width: 90%;
+    height: 90px;
+    background-color: white;
+    border-radius: 4px;
+    margin-left: 5%;
+    margin-top: 25%;
+}
