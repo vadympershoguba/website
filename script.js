@@ -2,7 +2,7 @@ body.height = window.innerHeight
 window.onload = ()=> {
     const tg = window.Telegram.WebApp;
     tg.expand();
-    postData('https://telegram-clicker-production.up.railway.app/getGameData', {
+    postData('https://telegram-clicker-website.onrender.com/getGameData', {
         telegramId: getTelegramId(),
       })
       .then(data => {
@@ -115,7 +115,7 @@ function postData(url, data) {
   }
   
   setInterval(() => {
-    postData('https://telegram-clicker-production.up.railway.app/updateGameData', {
+    postData('https://telegram-clicker-website.onrender.com/updateGameData', {
         telegramId: getTelegramId(),
         energy: getLeftEnergy(),
         coins: getLeftCoins(),
